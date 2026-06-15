@@ -160,10 +160,10 @@ body {
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     gap: 2.5rem;
-    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -491,4 +491,42 @@ footer {
     background: var(--primary-color);
     border-color: var(--primary-color);
     transform: scale(1.1);
+}
+
+/* Additional Mobile Responsiveness */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1rem;
+  }
+  .product-grid {
+    gap: 1.5rem;
+  }
+  .product-card {
+    margin: 0 auto;
+  }
+  .card-content h3 {
+    font-size: 1.2rem;
+  }
+  .card-content p {
+    font-size: 0.9rem;
+  }
+  .price {
+    font-size: 1.4rem;
+  }
+  .navbar {
+    padding: 1rem 2%;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack de Achadinhos Virais</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000; /* Dark background outside the content */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 700px; /* Native width of the images */
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .page-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fixed button at the bottom for mobile, or relative if needed. 
+           Let's create a pulsing fixed button like many of these pages have, 
+           or just place it where it was. It was right before the last image. */
+        .btn-container {
+            width: 100%;
+            padding: 20px;
+            background: #fff; /* Match background of that section if needed */
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-buy {
+            background-color: #25D366; /* Usually green for these buttons, or primary color */
+            background: linear-gradient(180deg, #25D366 0%, #1da851 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 20px 40px;
+            border-radius: 10px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-buy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Specific container for the button to position it exactly like the original.
+           In the original, the button is between image 9 and image 10. */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Image 1 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2026/04/LP-PACK-BRANCA-37-640x1024.webp" alt="Pack de Achadinhos">
+        
+        <!-- Image 2 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2025/12/2-1-640x1024.webp" alt="Detalhes">
+        
+        <!-- Image 3 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2025/12/3-1.webp" alt="Benefícios">
+        
+        <!-- Image 4 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2025/12/4-1.webp" alt="Para quem é">
+        
+        <!-- Image 5 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2025/12/5--640x1024.png" alt="Conteúdo">
+        
+        <!-- Image 6 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2026/01/6-640x1024.webp" alt="Mais Benefícios">
+        
+        <!-- Image 7 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2026/03/LP-PRETA-ATIVA-PACK-copia-2-694x1024.webp" alt="Bônus">
+        
+        <!-- Image 8 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2026/05/LP-PRETA-ATIVA-PACK-_2_-1.webp" alt="Mais Bônus">
+        
+        <!-- Image 9 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2026/05/LP-PRETA-ATIVA-PACK-_2_-2-640x1024.webp" alt="Garantia">
+
+        <!-- Button Section (Right before the last image as in original) -->
+        <div class="btn-container">
+            <a href="https://pay.kiwify.com.br/TDAS6Zg" target="_blank" class="btn-buy">
+                Quero o pack agora
+            </a>
+        </div>
+        
+        <!-- Image 10 -->
+        <img src="https://luanamayara.com/wp-content/uploads/2026/04/10.webp" alt="Rodapé e Dúvidas">
+    </div>
+
+</body>
+</html>

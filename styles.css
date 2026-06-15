@@ -366,6 +366,14 @@ footer {
     .product-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Mobile card background fix */
+    .product-card {
+        background: var(--bg-color); /* solid dark background */
+        border: 1px solid var(--glass-border);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
 }
 
 /* Add Product Card */

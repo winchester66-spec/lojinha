@@ -109,11 +109,18 @@ function editProduct(btn, event) {
         if (match) link = match[1];
     }
     
-    const cardImg = card.querySelector('.card-image');
-    const styleImg = cardImg.style.backgroundImage;
+    const cardImg = card.querySelector('.card-img');
     let image = "";
-    if (styleImg && styleImg.includes('url(')) {
-        image = styleImg.replace('url("', '').replace('")', '').replace("url('", '').replace("')", '');
+    if (cardImg && cardImg.src) {
+        image = cardImg.src;
+    } else {
+        const cardImgLegacy = card.querySelector('.card-image');
+        if (cardImgLegacy) {
+            const styleImg = cardImgLegacy.style.backgroundImage;
+            if (styleImg && styleImg.includes('url(')) {
+                image = styleImg.replace('url("', '').replace('")', '').replace("url('", '').replace("')", '');
+            }
+        }
     }
 
     document.getElementById('prodName').value = name;
@@ -141,8 +148,17 @@ function handleAddProduct(event) {
             currentEditingCard.querySelector('.btn-buy').setAttribute('onclick', `window.location.href='${link}'`);
             
             if (finalImage && finalImage.trim() !== '') {
-                currentEditingCard.querySelector('.card-image').style.backgroundImage = `url('${finalImage}')`;
-                currentEditingCard.querySelector('.card-image').style.backgroundColor = '#1e1e2f';
+                const imgEl = currentEditingCard.querySelector('.card-img');
+                if (imgEl) {
+                    imgEl.src = finalImage;
+                } else {
+                    // legacy fallback
+                    const legacyDiv = currentEditingCard.querySelector('.card-image');
+                    if (legacyDiv) {
+                        legacyDiv.style.backgroundImage = `url('${finalImage}')`;
+                        legacyDiv.style.backgroundColor = '#1e1e2f';
+                    }
+                }
             }
             
             saveGridState();
@@ -169,18 +185,18 @@ function handleAddProduct(event) {
 function renderNewProduct(name, price, link, image) {
     const addCard = document.querySelector('.add-product-card');
     
-    const imageStyle = image && image.trim() !== '' 
-        ? `background-image: url('${image}'); background-color: #1e1e2f; background-size: cover; background-position: center;` 
-        : `background: linear-gradient(135deg, #1e1e2f, #4c2b82);`;
-    
+    const imageHTML = image && image.trim() !== ''
+        ? `<img class="card-img" src="${image}" alt="${name}">`
+        : '';
+
     const cardHTML = `
         <div class="product-card" style="position: relative;">
             <button class="edit-btn" title="Editar Produto" onclick="editProduct(this, event)">⋮</button>
-            <div class="card-image" style="${imageStyle}"></div>
+            <div class="card-image-wrapper" style="background-color: #1e1e2f;">
+                ${imageHTML}
+            </div>
             <div class="card-content">
-                <span class="badge highlight">Novo</span>
                 <h3>${name}</h3>
-                <p>Produto adicionado manualmente.</p>
                 <div class="price-row">
                     <span class="price">R$ ${price}</span>
                     <button class="btn-buy" onclick="window.location.href='${link}'">Acessar</button>
